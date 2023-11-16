@@ -1,0 +1,21 @@
+1 https://www.google.com
+Search engine website, also provides email, maps, news, etc.
+
+2 https://www.wikipedia.org
+Online encyclopedia, also provides news, etc
+
+3 https://www.github.com
+Development platform for version control and collaboration, also provides project management tools, etc
+
+4 https://flipkart.com
+goods and services
+
+5 https://www.amazon.com
+E-commerce platform
+
+6 https://www.nytimes.com
+News and media website
+
+7 https://www.linkedin.com
+Social media platform for professionals
+
