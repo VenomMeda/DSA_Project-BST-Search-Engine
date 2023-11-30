@@ -19,3 +19,72 @@ News and media website
 7 https://www.linkedin.com
 Social media platform for professionals
 
+8 https://www.netflix.com 
+Streaming service for movies and TV shows
+
+9 https://www.instagram.com 
+Social media platform for sharing photos and videos
+
+10 https://www.spotify.com 
+Music streaming platform
+
+11 https://www.microsoft.com 
+Technology company providing software, hardware, and services
+
+12 https://www.apple.com 
+Technology company providing hardware, software, and services
+
+13 https://www.adobe.com 
+Software company providing creative, marketing, and document solutions
+
+14 https://www.oracle.com 
+Technology company providing database software, cloud systems, and enterprise software products
+
+15 https://www.ibm.com 
+Technology company providing hardware, software, and services
+
+16 https://www.tesla.com 
+Automobile company specializing in electric vehicles
+
+17 https://www.nasa.gov 
+Official website of the National Aeronautics and Space Administration
+
+18 https://www.who.int 
+Official website of the World Health Organization
+
+19 https://www.un.org 
+Official website of the United Nations
+
+20 https://www.coursera.org 
+Online learning platform offering courses from top universities and organizations
+
+21 https://www.irctc.co.in
+Indian Railway Catering and Tourism Corporation
+
+22 https://bennett.edu.in
+Bennett University
+
+23 https://www.nike.com 
+Sportswear and equipment supplier, known for athletic shoes, apparel and accessories, etc
+
+24 https://www.airbnb.com 
+Online marketplace for lodging, primarily homestays, and tourism experiences, etc
+
+25 https://www.yelp.com 
+User review and recommendation platform for restaurants, shopping, nightlife, entertainment, services, etc
+
+26 https://www.zillow.com 
+Real estate and rental marketplace, provides a database of more than 110 million U.S. homes, etc
+
+27 https://www.salesforce.com 
+Cloud-based software company, provides customer relationship management service and enterprise applications, etc
+
+28 https://www.dropbox.com 
+File hosting service, offers cloud storage, file synchronization, personal cloud, and client software, etc
+
+29 https://www.zoom.us 
+Video communications company, provides remote conferencing services using cloud computing, etc
+
+30 https://www.slack.com 
+Business communication platform, offers many IRC style features, including persistent chat rooms organized by topic, etc
+

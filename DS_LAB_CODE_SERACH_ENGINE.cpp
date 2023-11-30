@@ -1,8 +1,8 @@
-
 #include <iostream>
 #include <fstream>
 #include <cstring>
 #include <string>
+#include <algorithm> // For transform function
 using namespace std;
 
 // ----- BSTNode class for further use in BST class -----
@@ -20,7 +20,7 @@ public:
     BSTNode();
 };
 // functions for class BSTNode
-BSTNode ::BSTNode()
+BSTNode::BSTNode()
 {
     left = right = NULL;
 }
@@ -47,37 +47,37 @@ public:
 };
 // functions for class BST
 // default constructor
-BST ::BST()
+BST::BST()
 {
     root = NULL;
 }
 // functions
-// funtion to insert nodes (according to the serial numbers)
-void BST ::Insert(int sno, string url, string desc)
+// function to insert nodes (according to the serial numbers)
+void BST::Insert(int sno, string url, string desc)
 {
-    // declaring and initializing (acc to accessed data from file) a dynamically allocated BSTNode
+    // declaring and initializing (according to accessed data from the file) a dynamically allocated BSTNode
     BSTNode *bstnode = new BSTNode;
     bstnode->SerialNumber = sno;
     bstnode->Url = url;
     bstnode->Description = desc;
 
-    // condition when tree is empty
+    // condition when the tree is empty
     if (root == NULL)
     {
         root = bstnode;
     }
-    // condition when tree is not empty
+    // condition when the tree is not empty
     else
     {
         // temp pointer to root
         BSTNode *temp = root;
-        // prev pointer to trace previous node
+        // prev pointer to trace the previous node
         BSTNode *prev;
 
         // iterating through nodes
         while (temp != NULL)
         {
-            // tracing nodes and placing temp on the place where node is to be inserted
+            // tracing nodes and placing temp on the place where the node is to be inserted
             prev = temp;
             if (bstnode->SerialNumber < temp->SerialNumber)
             {
@@ -120,8 +120,8 @@ BST::~BST()
 {
     Destroy(root);
 }
-// for checking calidity (inorder traversal)
-void BST ::Display(BSTNode *nodeptr)
+// for checking validity (in-order traversal)
+void BST::Display(BSTNode *nodeptr)
 {
     if (nodeptr == NULL)
     {
@@ -135,74 +135,21 @@ void BST ::Display(BSTNode *nodeptr)
 }
 // ----- class BST ends -----
 
-// helper functiopn (for further use) to find a word in given description/string
-bool findword(string str, char word[])
+// Helper function (for further use) to find a word in the given description/string
+bool findword(string str, const char word[])
 {
-    // converting string into character array
-    char arr[200];
-    int q = 0;
-    while (q != str.length())
-    {
-        arr[q] = str[q];
-        q++;
-    }
-    arr[q] = '\0';
+    // Converting string to lowercase
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
 
-    // itrerating on word and string for searching word
-    int i = 0;
-    int count = 0;
-    int chk = false;
-    while (arr[i] != '\0')
-    {
-        int j = 0;
-        // if first alphabet matches
-        if (arr[i] == word[j])
-        {
-            // chcking for further alphabets one by one
-            while (true)
-            {
-                if (arr[i] == word[j])
-                {
-                    i++;
-                    j++;
-                    count++;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            // checking if it is completly matched
-            if (count == strlen(word))
-            {
-                // making check true if matched
-                chk = true;
-            }
-            else
-            {
-                count = 0;
-            }
-        }
-        // breaking loop if found
-        if (chk == true)
-        {
-            break;
-        }
-        // else
-        i++;
-    }
+    // Converting word to lowercase
+    string lowercaseWord = word;
+    transform(lowercaseWord.begin(), lowercaseWord.end(), lowercaseWord.begin(), ::tolower);
 
-    // returning answer
-    if (chk == true)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    // Searching for the lowercase word in the lowercase string
+    return str.find(lowercaseWord) != string::npos;
 }
-// Search function (using findword()) for searching and printing the URLs recursively (inorder traversal)
+
+// Search function (using findword()) for searching and printing the URLs recursively (in-order traversal)
 void Search(BSTNode *nodeptr, char word[])
 {
     if (nodeptr == NULL)
@@ -213,7 +160,7 @@ void Search(BSTNode *nodeptr, char word[])
     {
         Search(nodeptr->left, word);
 
-        // printing URL if word found
+        // printing URL if the word is found
         if (findword(nodeptr->Description, word))
         {
             cout << nodeptr->Url << endl;
@@ -228,37 +175,37 @@ void BST::Searchtemp(char word[])
     Search(root, word);
 }
 
-// this is the implementation for overall menu (intead of using main())
+// this is the implementation for the overall menu (instead of using main())
 void Implementation()
 {
-    // asking for filename
+    // asking for the filename
     cout << "\n---------------------------" << endl;
     cout << "Please Enter the filename: ";
     string filename;
     cin >> filename;
 
-    // opening file
+    // opening the file
     fstream myfile;
     myfile.open(filename, ios::in);
 
     // making a Binary Search Tree (BST) object
     BST bst;
 
-    // if file exist
+    // if the file exists
     if (myfile.is_open())
     {
         cout << "\nFile loaded successfully!" << endl;
         cout << "---------------------------" << endl;
 
-        // variable for getting lines in file
+        // variable for getting lines in the file
         string data;
 
-        // getting serial number of urls
+        // getting serial numbers of URLs
         // for iteration purpose
         // skipping 2nd and 3rd line
         int i = 0;
 
-        // making a dynamic BSTnode
+        // making a dynamic BSTNode
         BSTNode *bstnode = new BSTNode;
 
         // variables to store data
@@ -266,7 +213,7 @@ void Implementation()
         string Url;
         string Description;
 
-        // iterating through file
+        // iterating through the file
         while (getline(myfile, data))
         {
             // condition for getting desired data (URL and Serial Numbers)
@@ -276,7 +223,7 @@ void Implementation()
                 Url = data;
 
                 // getting serial numbers
-                // converting character data into numbers (by opearting on their ASCII value)
+                // converting character data into numbers (by operating on their ASCII value)
                 int num;
                 if (data[1] == ' ')
                 {
@@ -303,7 +250,7 @@ void Implementation()
                     num = (data[0] + data[1]) - 51;
                 }
 
-                // getting Serail Numbers
+                // getting Serial Numbers
                 sno = num;
 
                 // moving forward
@@ -322,19 +269,19 @@ void Implementation()
                 continue;
             }
 
-            // skipping third line ('\n')
+            // skipping the third line ('\n')
             else if (i == 2)
             {
                 i = 0;
             }
 
-            // iserting the node in bst by giving data in arguments
+            // inserting the node in the BST by giving data in arguments
             bst.Insert(sno, Url, Description);
         }
-        // closing file
+        // closing the file
         myfile.close();
     }
-    // if file not found
+    // if the file is not found
     else
     {
         cout << "File not found!" << endl;
@@ -345,7 +292,7 @@ void Implementation()
     // searching the word
     while (true)
     {
-        // taking input repeateadly (while user do not terminates)
+        // taking input repeatedly (while the user does not terminate)
         cout << "\nPress: " << endl;
         cout << "1: To Search" << endl;
         cout << "2: To Terminate" << endl;
@@ -353,10 +300,10 @@ void Implementation()
         int chk;
         cin >> chk;
 
-        // if want to search
+        // if you want to search
         if (chk == 1)
         {
-            // taking input from user for searching
+            // taking input from the user for searching
             char word[100];
             cout << "\n-----------------------" << endl;
             cout << "Enter Word: ";
@@ -367,7 +314,7 @@ void Implementation()
             bst.Searchtemp(word);
             cout << "_______________________" << endl;
         }
-        // if wants to terminate
+        // if you want to terminate
         else if (chk == 2)
         {
             cout << "\nTerminated!" << endl;
